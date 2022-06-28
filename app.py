@@ -1,13 +1,21 @@
-from flask import Flask
+from flask import Flask, request, render_template
 
-app = Flask(__name__)
-app.debug = True
+from cofig import DevelopmentConfig
+from server import create_app
 
 
 @app.route('/')
 def hello_world():  # put application's code here
-    return 'Hello World!'
+    return 'Hello World!((((('
 
 
-if __name__ == '__main__':
-    app.run()
+@app.route('/choose-hero', methods=['GET', 'POST'])
+def choose_hero():
+    if request.method == 'GET':
+        render_template(
+            'hero_choosing.html',
+            header='Выберите героя',
+        )
+
+
+app = create_app(DevelopmentConfig)

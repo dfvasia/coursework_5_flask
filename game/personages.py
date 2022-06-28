@@ -1,5 +1,4 @@
 from game.Models.personage_models import Personage
-from game.Models.skill_models import Skill
 from game.skills import ferocious_kick, powerful_thrust
 
 
@@ -21,3 +20,5 @@ class Thief(Personage):
     attack_modifier = 1.5
     armor_modifier = 1.0
     skill = powerful_thrust
+
+
