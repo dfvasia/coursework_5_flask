@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "coursework_5_flask"
+version = "0.1.0"
+description = ""
+authors = ["Василий <dfvasia@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.1.2"
+gunicorn = "^20.1.0"
+MarkupSafe = "^2.1.1"
+marshmallow = "^3.17.0"
+marshmallow-dataclass = "^8.5.8"
+Werkzeug = "^2.1.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
