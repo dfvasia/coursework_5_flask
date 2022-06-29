@@ -7,6 +7,7 @@ class BaseConfig:
     STRICT_SLASHES = False
 
 
+
 class TestingConfig(BaseConfig):
     TESTING = True
 
