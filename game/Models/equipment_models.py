@@ -22,7 +22,7 @@ class Armor:
     id: int
     name: str
     defence: float
-    stamina_per_hit: float
+    stamina_per_turn: float
 
 
 @dataclass
@@ -32,7 +32,7 @@ class EquipmentData:
 
     def get_weapon(self, weapons_name: str) -> Weapon:
         for weapon in self.weapons:
-            if weapons_name == weapons_name:
+            if weapons_name == weapon.name:
                 return weapon
             raise ThingDoesntExist
 

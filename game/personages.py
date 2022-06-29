@@ -1,3 +1,5 @@
+from typing import Dict, Type
+
 from game.Models.personage_models import Personage
 from game.skills import ferocious_kick, powerful_thrust
 
@@ -21,4 +23,9 @@ class Thief(Personage):
     armor_modifier = 1.0
     skill = powerful_thrust
 
+
+personage_class: Dict[str, Type[Personage]] = {
+    Warrior.name: Warrior,
+    Thief.name: Thief,
+}
 
