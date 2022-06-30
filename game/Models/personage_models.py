@@ -11,11 +11,11 @@ BASE_STAMINA_PER_ROUND = 0.4
 class Personage(ABC):
 
     name: str = NotImplemented
-    health: float = NotImplemented
-    stamina: float = NotImplemented
-    stamina_modifier: float = NotImplemented
-    attack_modifier: float = NotImplemented
-    armor_modifier: float = NotImplemented
+    health: float = NotImplemented #  max_health
+    stamina: float = NotImplemented #  max_stamina
+    stamina_modifier: float = NotImplemented #  stamina
+    attack_modifier: float = NotImplemented #  attack
+    armor_modifier: float = NotImplemented #  armor
     skill: Skill = NotImplemented
 
 

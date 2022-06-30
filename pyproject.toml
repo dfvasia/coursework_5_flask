@@ -13,6 +13,7 @@ marshmallow = "^3.17.0"
 marshmallow-dataclass = "^8.5.8"
 Werkzeug = "^2.1.2"
 flask-restx = "^0.5.1"
+jsonschema = "^4.6.1"
 
 [tool.poetry.dev-dependencies]
 

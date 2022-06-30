@@ -35,13 +35,13 @@ class EquipmentData:
         for weapon in self.weapons:
             if weapons_name == weapon.name:
                 return weapon
-            raise ThingDoesntExist
+        raise ThingDoesntExist
 
     def get_armor(self, armor_name: str) -> Armor:
         for armor in self.armors:
             if armor_name == armor.name:
                 return armor
-            raise ThingDoesntExist
+        raise ThingDoesntExist
 
     @property
     def weapon_names(self) -> List[str]:
