@@ -40,15 +40,15 @@ class Hero(ABC):
     def stamina(self):
         return round(self._stamina, 1)
 
+    @stamina.setter
+    def stamina(self, value):
+        self._stamina = value
+
     @property
     def _total_armor(self) -> float:
         if self.stamina - self.armor.stamina_per_turn >= 0:
             return self.armor.defence * self.class_.armor_modifier
         return 0
-
-    @stamina.setter
-    def stamina(self, value):
-        self._stamina = value
 
     def _hit(self, target: Hero) -> Optional[float]:
         if self.stamina - self.weapon.stamina_per_hit < 0:
