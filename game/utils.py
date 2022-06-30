@@ -1,6 +1,6 @@
 import json
 import os
-from typing import Union
+from typing import Union, Any, Mapping, Iterable
 import marshmallow_dataclass
 
 from exceptions import FileDoesNotExist, StructureIsNotCorrect
@@ -10,7 +10,7 @@ BASE_DIR: str = os.path.abspath(os.path.dirname(__file__))
 EQUIPMENT_PATH: str = os.path.join(BASE_DIR, 'data', 'equipment.json')
 
 
-def read_json(file_path: str, encoding: str = 'utf-8') -> Union[dict, list]:
+def read_json(file_path: str, encoding: str = 'utf-8') -> Union[Mapping[str, Any], Iterable[Mapping[str, Any]]]:
     try:
         with open(file_path, encoding=encoding) as f:
             return json.load(f)
