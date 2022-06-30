@@ -29,19 +29,19 @@ class Hero(ABC):
         self.name = name
 
     @property
-    def hp(self):
+    def hp(self) -> float:
         return round(self._hp, 1)
 
     @hp.setter
-    def hp(self, value):
+    def hp(self, value: float) -> None:
         self._hp = value
 
     @property
-    def stamina(self):
+    def stamina(self) -> float:
         return round(self._stamina, 1)
 
     @stamina.setter
-    def stamina(self, value):
+    def stamina(self, value: float) -> None:
         self._stamina = value
 
     @property
@@ -61,12 +61,12 @@ class Hero(ABC):
         self.stamina -= self.weapon.stamina_per_hit
         return round(dealt_damage, 1)
 
-    def take_hit(self, damage: float):
+    def take_hit(self, damage: float) -> None:
         self.hp -= damage
         if self.hp < 0:
             self.hp = 0
 
-    def regenerate_stamina(self):
+    def regenerate_stamina(self) -> None:
         delta_stamina = BASE_STAMINA_PER_ROUND * self.class_.stamina_modifier
         if self.stamina + delta_stamina <= self.class_.max_stamina:
             self.stamina += delta_stamina

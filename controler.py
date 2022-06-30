@@ -1,17 +1,18 @@
-from typing import Optional
+from typing import Optional, Type
 
 from game.Models.game import GameSingletonMeta
 from game.Models.personage_models import Hero
+from game.hero import Player
 
 
 class Game(metaclass=GameSingletonMeta):
-    def __init__(self):
+    def __init__(self) -> None:
         self.player = None
         self.enemy = None
         self.game_processing = False
         self.game_results = ''
 
-    def run(self, player: Hero, enemy: Hero):
+    def run(self, player: Hero, enemy: Hero) -> None:
         self.player = player
         self.enemy = enemy
         self.game_processing = True
@@ -25,7 +26,7 @@ class Game(metaclass=GameSingletonMeta):
             return self._end_game(results='Игрок победил')
         return None
 
-    def _end_game(self, results: str):
+    def _end_game(self, results: str) -> str:
         self.game_processing = False
         self.game_results = results
         return results
@@ -41,7 +42,7 @@ class Game(metaclass=GameSingletonMeta):
         self._stamina_regenerate()
         return results
 
-    def _stamina_regenerate(self):
+    def _stamina_regenerate(self) -> None:
         self.player.regenerate_stamina()
         self.enemy.regenerate_stamina()
 
