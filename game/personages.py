@@ -6,8 +6,8 @@ from game.skills import ferocious_kick, powerful_thrust
 
 class Warrior(Personage):
     name = 'Воин'
-    health = 60.0
-    stamina = 30.0
+    max_health = 60.0
+    max_stamina = 30.0
     stamina_modifier = 0.9
     attack_modifier = 0.8
     armor_modifier = 1.2
@@ -16,8 +16,8 @@ class Warrior(Personage):
 
 class Thief(Personage):
     name = 'Вор'
-    health = 50.0
-    stamina = 25.0
+    max_health = 50.0
+    max_stamina = 25.0
     stamina_modifier = 1.2
     attack_modifier = 1.5
     armor_modifier = 1.0

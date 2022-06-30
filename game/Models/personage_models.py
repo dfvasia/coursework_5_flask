@@ -2,20 +2,19 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Type, Optional
 
+from config import BASE_STAMINA_PER_ROUND
 from game.Models.equipment_models import Armor, Weapon
 from game.Models.skill_models import Skill
-
-BASE_STAMINA_PER_ROUND = 0.4
 
 
 class Personage(ABC):
 
     name: str = NotImplemented
-    health: float = NotImplemented #  max_health
-    stamina: float = NotImplemented #  max_stamina
-    stamina_modifier: float = NotImplemented #  stamina
-    attack_modifier: float = NotImplemented #  attack
-    armor_modifier: float = NotImplemented #  armor
+    max_health: float = NotImplemented
+    max_stamina: float = NotImplemented
+    stamina_modifier: float = NotImplemented
+    attack_modifier: float = NotImplemented
+    armor_modifier: float = NotImplemented
     skill: Skill = NotImplemented
 
 
@@ -24,8 +23,8 @@ class Hero(ABC):
         self.class_ = class_
         self.weapon = weapon
         self.armor = armor
-        self._stamina = self.class_.stamina
-        self._hp = self.class_.health
+        self._stamina = self.class_.max_stamina
+        self._hp = self.class_.max_health
         self.skill_used: bool = False
         self.name = name
 
@@ -69,13 +68,13 @@ class Hero(ABC):
 
     def regenerate_stamina(self):
         delta_stamina = BASE_STAMINA_PER_ROUND * self.class_.stamina_modifier
-        if self.stamina + delta_stamina <= self.class_.stamina:
+        if self.stamina + delta_stamina <= self.class_.max_stamina:
             self.stamina += delta_stamina
         else:
-            self.stamina = self.class_.stamina
+            self.stamina = self.class_.max_stamina
 
     def use_skill(self) -> Optional[float]:
-        if not self.skill_used and self.stamina - self.class_.stamina:
+        if not self.skill_used and self.stamina - self.class_.max_stamina:
             self.skill_used = True
             return round(self.class_.skill.damage, 1)
         return None
